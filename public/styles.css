@@ -3,20 +3,15 @@
 /* Britti Sans Trial — read from the fonts installed on this computer (not bundled; it's a trial licence).
    Visitors without it fall back to Inter. */
 @font-face { font-family: "Britti"; font-weight: 300; font-style: normal; src: local("Britti Sans Trial Light"), local("BrittiSansTrial-Light"); }
-@font-face { font-family: "Britti"; font-weight: 300; font-style: italic; src: local("Britti Sans Trial Light Italic"), local("BrittiSansTrial-LightItalic"); }
 @font-face { font-family: "Britti"; font-weight: 400; font-style: normal; src: local("Britti Sans Trial Regular"), local("BrittiSansTrial-Regular"); }
-@font-face { font-family: "Britti"; font-weight: 400; font-style: italic; src: local("Britti Sans Trial Regular Italic"), local("BrittiSansTrial-RegularItalic"); }
 @font-face { font-family: "Britti"; font-weight: 500 600; font-style: normal; src: local("Britti Sans Trial Semibold"), local("BrittiSansTrial-Semibold"); }
-@font-face { font-family: "Britti"; font-weight: 500 600; font-style: italic; src: local("Britti Sans Trial Semibold Italic"), local("BrittiSansTrial-SemiboldItalic"); }
 @font-face { font-family: "Britti"; font-weight: 700; font-style: normal; src: local("Britti Sans Trial Bold"), local("BrittiSansTrial-Bold"); }
-@font-face { font-family: "Britti"; font-weight: 700; font-style: italic; src: local("Britti Sans Trial Bold Italic"), local("BrittiSansTrial-BoldItalic"); }
 
 :root {
   --violet: #af50ff;
   --blue-edge: #4d5da5;
 
   --sans: "Britti", "Britti Sans Trial", "Inter", Arial, sans-serif;
-  --serif: var(--sans); /* the italic accents now use Britti italic */
   --mono: "Space Mono", ui-monospace, monospace;
 
   --gutter: 32px;
@@ -85,7 +80,7 @@
   color-scheme: light;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; font-style: normal; font-synthesis: none; }
 /* Components set their own display (flex/grid), which would otherwise override the hidden attribute. */
 [hidden] { display: none !important; }
 html { scroll-padding-top: calc(var(--bar-h) + 56px); }
@@ -121,7 +116,7 @@ kbd {
 }
 .wordmark { display: flex; align-items: baseline; gap: 6px; color: inherit; text-decoration: none; white-space: nowrap; }
 .wm-sans { font: 700 18px/1 var(--sans); letter-spacing: -.03em; }
-.wm-serif { font: italic 300 18px/1 var(--sans); letter-spacing: -.02em; }
+.wm-light { font: 300 18px/1 var(--sans); letter-spacing: -.02em; }
 
 .search { position: relative; display: flex; align-items: center; width: 100%; }
 .search svg { position: absolute; left: 14px; width: 17px; height: 17px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
@@ -235,7 +230,7 @@ kbd {
 }
 .t-close svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .t-close:hover { background: var(--glass); }
-.t-name { margin: 8px 0 16px; font: italic 600 28px/1.1 var(--sans); letter-spacing: -.02em; }
+.t-name { margin: 8px 0 16px; font: 600 28px/1.1 var(--sans); letter-spacing: -.02em; }
 .t-previews { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .pv { margin: 0; }
 .pv-art { display: grid; place-items: center; aspect-ratio: 1 / .8; border-radius: 12px; }
