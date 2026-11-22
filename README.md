@@ -2,7 +2,7 @@
 
 Hand-drawn Runbeta service icons (46 icons × light & dark), with a keyboard-first website for browsing, copying and downloading them.
 
-The site is dark-only and cinematic: a cloud-stage opening with a boarding-pass download, a split-flap board of keyboard shortcuts, a ticket rail of the six categories, the icon browser, and an atmospheric footer. Fonts: Inter, Bodoni Moda and Space Mono (Google Fonts).
+The site is a single dark page: a search bar, category chips, the icon grid and a detail panel. Fonts: Inter, Bodoni Moda and Space Mono (Google Fonts).
 
 Source design: Figma → Gojaye **Runbeta** file → page **special icons** (`node 4821:24454`).
 - Light set: section `4821:24455`  ·  Dark set: section `4821:24762`
@@ -39,7 +39,7 @@ public/               ← the website
 | --- | --- |
 | `/` or `⌘K` | Search |
 | Arrow keys | Move between icons |
-| `Enter` | Open the icon's boarding pass (detail panel) |
+| `Enter` | Open the detail panel |
 | `1`–`6` | Jump to category |
 | `C` | Copy SVG |
 | `⇧C` | Copy PNG image |

@@ -4,237 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Runbeta Icons</title>
-  <meta name="description" content="Forty-six hand-drawn service icons in light and dark. Search, copy and download them without leaving the keyboard." />
+  <meta name="description" content="Hand-drawn service icons in light and dark. Search, copy and download them from the keyboard." />
   <meta name="theme-color" content="#090909" />
   <link rel="icon" href="icons/dark/home-repairs-and-installations.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Inter:wght@300;400;500;700&family=Space+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Inter:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip" href="#browser">Skip to icons</a>
+  <a class="skip" href="#grid">Skip to icons</a>
 
-  <!-- ============ Navigation ============ -->
-  <header class="nav" id="nav">
-    <a class="wordmark" href="#top" aria-label="Runbeta Icons, back to top">
+  <header class="bar">
+    <a class="wordmark" href="./" aria-label="Runbeta Icons">
       <span class="wm-sans">Runbeta</span> <span class="wm-serif">Icons</span>
     </a>
-    <span class="nav-rule" aria-hidden="true"></span>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#board">Shortcuts</a>
-      <a href="#routes">Categories</a>
-      <a href="#browser">Icons</a>
-      <a href="https://github.com/winnpxl/icon-set" target="_blank" rel="noopener">GitHub</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="nav-btn ghost" id="nav-search" title="Search (/)">Search <kbd>/</kbd></button>
+
+    <div class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="Search icons" autocomplete="off" spellcheck="false" aria-label="Search icons" />
+      <span class="count" id="count"></span>
+      <kbd class="hint">/</kbd>
+    </div>
+
+    <div class="bar-actions">
+      <div class="selector" role="radiogroup" aria-label="Icon variant (V)">
+        <button role="radio" data-variant="light" aria-checked="false">Light</button>
+        <button role="radio" data-variant="dark" aria-checked="true">Dark</button>
+      </div>
       <div class="menu-wrap">
-        <button class="nav-btn" id="download-all" aria-haspopup="menu" aria-expanded="false" title="Download all (Shift+D)">Download all</button>
+        <button class="btn" id="download-all" aria-haspopup="menu" aria-expanded="false" title="Download all (Shift+D)">
+          <svg viewBox="0 0 20 18" aria-hidden="true"><path d="M10 1v12m0 0-5-5m5 5 5-5M2 17h16"/></svg>
+          <span>Download all</span>
+        </button>
         <div class="menu" id="download-menu" role="menu" hidden>
           <a role="menuitem" href="downloads/runbeta-icons.zip" download>Light + dark <span>.zip</span></a>
           <a role="menuitem" href="downloads/runbeta-icons-light.zip" download>Light only <span>.zip</span></a>
           <a role="menuitem" href="downloads/runbeta-icons-dark.zip" download>Dark only <span>.zip</span></a>
         </div>
       </div>
+      <button class="icon-btn" id="help-btn" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>
     </div>
   </header>
 
-  <main id="top">
-    <!-- ============ 1. Promise: cinematic stage ============ -->
-    <section class="stage" aria-labelledby="hero-title">
-      <div class="sky" aria-hidden="true">
-        <svg class="clouds" viewBox="0 0 1440 960" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <filter id="cloud-noise" x="0" y="0" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.0028 0.0075" numOctaves="5" seed="11" />
-              <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.94  0 0 0 0 0.97  2.1 0 0 0 -0.92" />
-            </filter>
-            <filter id="cloud-rim" x="0" y="0" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.0034 0.009" numOctaves="4" seed="4" />
-              <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 0.62  0 0 0 0 0.72  2.4 0 0 0 -1.12" />
-            </filter>
-            <linearGradient id="cloud-fade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#fff" stop-opacity="0.05" />
-              <stop offset="0.45" stop-color="#fff" stop-opacity="0.45" />
-              <stop offset="0.78" stop-color="#fff" stop-opacity="1" />
-              <stop offset="1" stop-color="#fff" stop-opacity="0.6" />
-            </linearGradient>
-            <mask id="cloud-mask"><rect width="1440" height="960" fill="url(#cloud-fade)" /></mask>
-          </defs>
-          <g mask="url(#cloud-mask)">
-            <rect width="1440" height="960" filter="url(#cloud-noise)" opacity="0.85" />
-            <rect width="1440" height="960" filter="url(#cloud-rim)" opacity="0.7" style="mix-blend-mode: screen" />
-          </g>
-        </svg>
-        <div class="halo"></div>
-        <div class="shade-left"></div>
-        <div class="shade-bottom"></div>
-        <svg class="trail" viewBox="0 0 360 24" aria-hidden="true">
-          <defs>
-            <linearGradient id="trail-g" x1="0" x2="1">
-              <stop offset="0" stop-color="#fff" stop-opacity="0" />
-              <stop offset="1" stop-color="#fff" stop-opacity="0.8" />
-            </linearGradient>
-            <filter id="trail-blur"><feGaussianBlur stdDeviation="4" /></filter>
-          </defs>
-          <line x1="0" y1="12" x2="340" y2="12" stroke="url(#trail-g)" stroke-width="3" filter="url(#trail-blur)" />
-          <line x1="0" y1="12" x2="340" y2="12" stroke="url(#trail-g)" stroke-width="1" />
-          <path d="M340 7 L352 12 L340 17 Z" fill="#fff" />
-        </svg>
-      </div>
+  <nav class="cats" id="cats" aria-label="Categories"></nav>
 
-      <div class="stage-inner">
-        <div class="hero-copy">
-          <h1 id="hero-title" class="display">
-            <span class="serif">Hand-drawn</span>
-            <span class="sans">service icons,</span>
-            <span class="serif italic muted">on your keyboard.</span>
-          </h1>
-          <p class="hero-support">Never dig through Figma for an icon again.</p>
-          <div class="hero-invite">
-            <p>Press <kbd>/</kbd> to search, <kbd>?</kbd> for every shortcut.</p>
-            <button class="ring" id="ring-search" aria-label="Search icons">
-              <span>/</span>
-            </button>
-          </div>
-        </div>
+  <main id="grid" class="grid-wrap" tabindex="-1"></main>
+  <p class="empty" id="empty" hidden>No icons match “<span></span>”. <button class="link" id="clear-search">Clear search</button></p>
 
-        <aside class="pass" aria-label="Download the whole set">
-          <div class="pass-main">
-            <dl class="pass-meta">
-              <div><dt>From</dt><dd>Figma · Runbeta</dd></div>
-              <div><dt>To</dt><dd>Your code</dd></div>
-              <div><dt>Formats</dt><dd>SVG · PNG · React</dd></div>
-              <div><dt>Icons</dt><dd><span data-count>46</span> × 2 modes</dd></div>
-            </dl>
-            <div class="pass-perf" aria-hidden="true"></div>
-            <p class="pass-board">Now boarding</p>
-            <button class="pass-now" id="now-boarding" aria-label="Open the featured icon">
-              <span class="now-art"></span><span class="now-name"></span>
-            </button>
-            <p class="pass-invite">Take the whole set <em>with you.</em></p>
-            <div class="pass-actions">
-              <a class="pill-outline" href="downloads/runbeta-icons.zip" download>Download all <span>.zip</span>
-                <svg viewBox="0 0 20 18" aria-hidden="true"><path d="M10 1v12m0 0-5-5m5 5 5-5M2 17h16"/></svg></a>
-              <a class="pill-outline" href="#browser">Browse the icons
-                <svg viewBox="0 0 20 18" aria-hidden="true"><path d="M1 9h17m0 0-6-6m6 6-6 6"/></svg></a>
-            </div>
-          </div>
-          <div class="pass-code" id="pass-code" aria-hidden="true"></div>
-        </aside>
-      </div>
-
-      <ul class="telemetry" aria-label="Set details">
-        <li>VIEWBOX 0 0 32 32</li>
-        <li>LIGHT #062B5C / #CDD5DE</li>
-        <li>DARK #72A4E5 / #222B35</li>
-        <li><span data-count>46</span> ICONS / 6 ROUTES</li>
-      </ul>
-    </section>
-
-    <!-- ============ 2. Capability board: keyboard departures ============ -->
-    <section class="board" id="board" aria-labelledby="board-title">
-      <header class="board-head">
-        <p class="chapter-mark">[ 01 ] Departures</p>
-        <h2 id="board-title" class="board-title">Every route runs <em>through the keyboard.</em></h2>
-      </header>
-      <ol class="flaps" id="flaps"></ol>
-    </section>
-
-    <!-- ============ 3. Ticket rail: categories ============ -->
-    <section class="routes" id="routes" aria-labelledby="routes-title">
-      <header class="routes-head">
-        <h2 id="routes-title">Six routes through the set</h2>
-        <svg class="bent-arrow" viewBox="0 0 40 32" aria-hidden="true"><path d="M2 2v12a6 6 0 0 0 6 6h28m0 0-7-7m7 7-7 7"/></svg>
-        <div class="rail-nav">
-          <button class="rail-btn" data-dir="-1" aria-label="Previous categories"><svg viewBox="0 0 20 18"><path d="M19 9H2m0 0 6-6M2 9l6 6"/></svg></button>
-          <button class="rail-btn" data-dir="1" aria-label="Next categories"><svg viewBox="0 0 20 18"><path d="M1 9h17m0 0-6-6m6 6-6 6"/></svg></button>
-        </div>
-      </header>
-      <div class="rail" id="rail" tabindex="-1"></div>
-    </section>
-
-    <!-- ============ 4. Product scene: the browser ============ -->
-    <section class="browser" id="browser" aria-labelledby="browser-title" tabindex="-1">
-      <h2 id="browser-title" class="showcase">The whole set, <em>within reach.</em></h2>
-
-      <div class="toolbar" id="toolbar">
-        <div class="search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="search" type="search" placeholder="Search 46 icons" autocomplete="off" spellcheck="false" aria-label="Search icons" />
-          <kbd class="hint">/</kbd>
-        </div>
-        <div class="selector" role="radiogroup" aria-label="Icon variant (V)">
-          <button role="radio" data-variant="light" aria-checked="false"><span class="plus">+</span> Light icons</button>
-          <button role="radio" data-variant="dark" aria-checked="true"><span class="plus">+</span> Dark icons</button>
-        </div>
-        <p class="count"><span id="count">46</span></p>
-      </div>
-
-      <div id="grid" class="grid-wrap"></div>
-      <p class="empty" id="empty" hidden>No icon on this route matches “<span></span>”. <button class="link" id="clear-search">Clear search</button></p>
-    </section>
-
-    <!-- ============ 5. Closing invitation + atmospheric landing ============ -->
-    <section class="landing" aria-labelledby="closing-title">
-      <div class="landing-sky" aria-hidden="true">
-        <svg class="grain" width="100%" height="100%"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0"/></filter><rect width="100%" height="100%" filter="url(#grain)"/></svg>
-        <div class="horizon"></div>
-      </div>
-
-      <div class="closing">
-        <h2 id="closing-title">Take all <span data-count>46</span> with you. No layover.</h2>
-        <div class="closing-actions">
-          <a class="glass-pill" href="downloads/runbeta-icons.zip" download>
-            Download the set
-            <svg viewBox="0 0 20 18" aria-hidden="true"><path d="M10 1v12m0 0-5-5m5 5 5-5M2 17h16"/></svg>
-          </a>
-          <a class="glass-pill" href="https://github.com/winnpxl/icon-set" target="_blank" rel="noopener">
-            View the source
-            <svg viewBox="0 0 20 18" aria-hidden="true"><path d="M1 9h17m0 0-6-6m6 6-6 6"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <div class="f-col f-brand">
-          <p class="f-wordmark"><span class="wm-sans">Runbeta</span><br /><span class="wm-serif">Icons</span></p>
-          <p class="f-manifesto">It’s not that we hate hunting through Figma for icons. We’re just tired of it. So we drew them once. Named them. Put them on your keyboard.</p>
-        </div>
-        <div class="f-col">
-          <h3>Routes</h3>
-          <ul id="footer-cats"></ul>
-        </div>
-        <div class="f-col">
-          <h3>Downloads</h3>
-          <ul>
-            <li><a href="downloads/runbeta-icons.zip" download>Light + dark .zip</a></li>
-            <li><a href="downloads/runbeta-icons-light.zip" download>Light .zip</a></li>
-            <li><a href="downloads/runbeta-icons-dark.zip" download>Dark .zip</a></li>
-            <li><a href="https://github.com/winnpxl/icon-set" target="_blank" rel="noopener">Source on GitHub</a></li>
-          </ul>
-        </div>
-        <div class="f-col">
-          <h3>Keyboard</h3>
-          <ul class="f-keys">
-            <li><kbd>/</kbd> Search</li>
-            <li><kbd>C</kbd> Copy SVG</li>
-            <li><kbd>P</kbd> Download PNG</li>
-            <li><button class="link" id="footer-help"><kbd>?</kbd> All shortcuts</button></li>
-          </ul>
-        </div>
-        <p class="f-tag" aria-hidden="true">[ End of line ]</p>
-        <div class="f-bottom">
-          <span>Runbeta Icons</span>
-          <span>Hand-drawn in Figma · 32 × 32 grid</span>
-          <span>Light &amp; dark</span>
-        </div>
-      </footer>
-    </section>
-  </main>
-
-  <!-- ============ Detail: boarding pass ============ -->
+  <!-- Detail panel -->
   <aside class="ticket" id="panel" aria-label="Icon details" hidden>
     <div class="t-stub">
       <div class="t-head">
@@ -272,7 +90,7 @@
         </label>
       </div>
 
-      <button class="glass-pill primary act" data-action="copy-svg">Copy SVG <kbd>C</kbd></button>
+      <button class="primary act" data-action="copy-svg">Copy SVG <kbd>C</kbd></button>
       <div class="t-actions">
         <button class="act" data-action="download-svg">Download SVG <kbd>D</kbd></button>
         <button class="act" data-action="download-png">Download PNG <kbd>P</kbd></button>
@@ -290,16 +108,13 @@
         </div>
         <pre><code id="p-code"></code></pre>
       </details>
-
-      <div class="t-code" id="p-barcode" aria-hidden="true"></div>
     </div>
   </aside>
   <div class="scrim" id="scrim" hidden></div>
 
-  <!-- ============ Shortcuts dialog ============ -->
   <dialog id="help" aria-labelledby="help-title">
     <div class="help-head">
-      <h2 id="help-title">Every route, <em>by key.</em></h2>
+      <h2 id="help-title">Keyboard shortcuts</h2>
       <button class="t-close" data-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
     <div class="help-cols">
@@ -308,8 +123,8 @@
         <dl>
           <div><dt><kbd>/</kbd> <kbd>⌘K</kbd></dt><dd>Search</dd></div>
           <div><dt><kbd>←</kbd><kbd>↑</kbd><kbd>→</kbd><kbd>↓</kbd></dt><dd>Move between icons</dd></div>
-          <div><dt><kbd>Enter</kbd></dt><dd>Open boarding pass</dd></div>
-          <div><dt><kbd>1</kbd>–<kbd>6</kbd></dt><dd>Jump to a route</dd></div>
+          <div><dt><kbd>Enter</kbd></dt><dd>Open details</dd></div>
+          <div><dt><kbd>1</kbd>–<kbd>6</kbd></dt><dd>Jump to category</dd></div>
           <div><dt><kbd>Esc</kbd></dt><dd>Close / clear search</dd></div>
         </dl>
       </section>
