@@ -25,7 +25,7 @@ for (const icon of icons) {
     fs.mkdirSync(path.join(pub, 'icons', mode), { recursive: true });
     fs.copyFileSync(src, path.join(pub, 'icons', mode, `${icon.slug}.svg`));
   }
-  data.icons.push({ slug: icon.slug, label: icon.label, category: icon.category, svg });
+  data.icons.push({ slug: icon.slug, label: icon.label, category: icon.category, figma: icon.figma.number, svg });
 }
 fs.writeFileSync(path.join(pub, 'icons.json'), JSON.stringify(data));
 
