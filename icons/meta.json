@@ -1,0 +1,520 @@
+{
+  "colors": {
+    "light": {
+      "stroke": "#062B5C",
+      "fill": "#CDD5DE"
+    },
+    "dark": {
+      "stroke": "#72A4E5",
+      "fill": "#222B35"
+    }
+  },
+  "icons": [
+    {
+      "slug": "fashion-and-garment-services",
+      "label": "Fashion & Garment Services",
+      "category": "fashion",
+      "categoryLabel": "Fashion & Garment",
+      "figma": {
+        "number": "01",
+        "light": "4821:24459",
+        "dark": "4821:24766"
+      }
+    },
+    {
+      "slug": "tailor-fashion-designer",
+      "label": "Tailor/Fashion Designer",
+      "category": "fashion",
+      "categoryLabel": "Fashion & Garment",
+      "figma": {
+        "number": "02",
+        "light": "4821:24464",
+        "dark": "4821:24771"
+      }
+    },
+    {
+      "slug": "clothing-alterations",
+      "label": "Clothing Alterations",
+      "category": "fashion",
+      "categoryLabel": "Fashion & Garment",
+      "figma": {
+        "number": "03",
+        "light": "4821:24468",
+        "dark": "4821:24775"
+      }
+    },
+    {
+      "slug": "shoe-repair",
+      "label": "Shoe Repair",
+      "category": "fashion",
+      "categoryLabel": "Fashion & Garment",
+      "figma": {
+        "number": "04",
+        "light": "4821:24472",
+        "dark": "4821:24779"
+      }
+    },
+    {
+      "slug": "laundry-dry-cleaning-services",
+      "label": "Laundry/Dry Cleaning Services",
+      "category": "fashion",
+      "categoryLabel": "Fashion & Garment",
+      "figma": {
+        "number": "05",
+        "light": "4821:24481",
+        "dark": "4821:24788"
+      }
+    },
+    {
+      "slug": "ironing-services",
+      "label": "Ironing Services",
+      "category": "fashion",
+      "categoryLabel": "Fashion & Garment",
+      "figma": {
+        "number": "06",
+        "light": "4821:24491",
+        "dark": "4821:24798"
+      }
+    },
+    {
+      "slug": "entertainment",
+      "label": "Entertainment",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "figma": {
+        "number": "01",
+        "light": "4821:24497",
+        "dark": "4821:25043"
+      }
+    },
+    {
+      "slug": "photographers",
+      "label": "Photographers",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "figma": {
+        "number": "02",
+        "light": "4821:24502",
+        "dark": "4821:25048"
+      }
+    },
+    {
+      "slug": "videographers",
+      "label": "Videographers",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "figma": {
+        "number": "03",
+        "light": "4821:24507",
+        "dark": "4821:25053"
+      }
+    },
+    {
+      "slug": "masters-of-ceremony",
+      "label": "Masters of Ceremony",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "figma": {
+        "number": "04",
+        "light": "4821:24512",
+        "dark": "4821:25058"
+      }
+    },
+    {
+      "slug": "content-creators",
+      "label": "Content Creators",
+      "category": "entertainment",
+      "categoryLabel": "Entertainment",
+      "figma": {
+        "number": "05",
+        "light": "4821:24517",
+        "dark": "4821:25063"
+      }
+    },
+    {
+      "slug": "caregivers",
+      "label": "Caregivers",
+      "category": "caregivers",
+      "categoryLabel": "Caregivers",
+      "figma": {
+        "number": "16",
+        "light": "4821:24524",
+        "dark": "4821:24804"
+      }
+    },
+    {
+      "slug": "elderly-caregivers",
+      "label": "Elderly Caregivers",
+      "category": "caregivers",
+      "categoryLabel": "Caregivers",
+      "figma": {
+        "number": "17",
+        "light": "4821:24529",
+        "dark": "4821:24809"
+      }
+    },
+    {
+      "slug": "childcare",
+      "label": "Childcare",
+      "category": "caregivers",
+      "categoryLabel": "Caregivers",
+      "figma": {
+        "number": "18",
+        "light": "4821:24534",
+        "dark": "4821:24814"
+      }
+    },
+    {
+      "slug": "special-needs-care",
+      "label": "Special Needs Care",
+      "category": "caregivers",
+      "categoryLabel": "Caregivers",
+      "figma": {
+        "number": "19",
+        "light": "4821:24539",
+        "dark": "4821:24819"
+      }
+    },
+    {
+      "slug": "post-surgery-care",
+      "label": "Post-Surgery Care",
+      "category": "caregivers",
+      "categoryLabel": "Caregivers",
+      "figma": {
+        "number": "20",
+        "light": "4821:24546",
+        "dark": "4821:24826"
+      }
+    },
+    {
+      "slug": "patient-companion",
+      "label": "Patient Companion",
+      "category": "caregivers",
+      "categoryLabel": "Caregivers",
+      "figma": {
+        "number": "21",
+        "light": "4821:24552",
+        "dark": "4821:24832"
+      }
+    },
+    {
+      "slug": "home-nurse",
+      "label": "Home Nurse",
+      "category": "caregivers",
+      "categoryLabel": "Caregivers",
+      "figma": {
+        "number": "22",
+        "light": "4821:24556",
+        "dark": "4821:24836"
+      }
+    },
+    {
+      "slug": "beauty-and-personal-care",
+      "label": "Beauty & Personal Care",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "07",
+        "light": "4821:24564",
+        "dark": "4821:24844"
+      }
+    },
+    {
+      "slug": "barber",
+      "label": "Barber",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "08",
+        "light": "4821:24569",
+        "dark": "4821:24849"
+      }
+    },
+    {
+      "slug": "makeup-artist",
+      "label": "Makeup Artist",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "09",
+        "light": "4821:24575",
+        "dark": "4821:24855"
+      }
+    },
+    {
+      "slug": "nail-technician",
+      "label": "Nail Technician",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "10",
+        "light": "4821:24584",
+        "dark": "4821:24864"
+      }
+    },
+    {
+      "slug": "lash-technician",
+      "label": "Lash Technician",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "11",
+        "light": "4821:24590",
+        "dark": "4821:24870"
+      }
+    },
+    {
+      "slug": "facialist",
+      "label": "Facialist",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "12",
+        "light": "4821:24596",
+        "dark": "4821:24876"
+      }
+    },
+    {
+      "slug": "spa-massage-therapist",
+      "label": "Spa/Massage Therapist",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "13",
+        "light": "4821:24602",
+        "dark": "4821:24882"
+      }
+    },
+    {
+      "slug": "hairstylist",
+      "label": "Hairstylist",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "14",
+        "light": "4821:24608",
+        "dark": "4821:24888"
+      }
+    },
+    {
+      "slug": "bridal-beauty-services",
+      "label": "Bridal Beauty Services",
+      "category": "beauty",
+      "categoryLabel": "Beauty & Personal Care",
+      "figma": {
+        "number": "15",
+        "light": "4821:24617",
+        "dark": "4821:24897"
+      }
+    },
+    {
+      "slug": "home-cleaning",
+      "label": "Home Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "23",
+        "light": "4821:24626",
+        "dark": "4821:24906"
+      }
+    },
+    {
+      "slug": "sofa-cleaning",
+      "label": "Sofa Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "24",
+        "light": "4821:24632",
+        "dark": "4821:24912"
+      }
+    },
+    {
+      "slug": "carpet-cleaning",
+      "label": "Carpet Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "25",
+        "light": "4821:24642",
+        "dark": "4821:24922"
+      }
+    },
+    {
+      "slug": "window-cleaning",
+      "label": "Window Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "26",
+        "light": "4821:24648",
+        "dark": "4821:24928"
+      }
+    },
+    {
+      "slug": "move-in-out-cleaning",
+      "label": "Move In/Out Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "27",
+        "light": "4821:24659",
+        "dark": "4821:24939"
+      }
+    },
+    {
+      "slug": "post-construction-cleaning",
+      "label": "Post-Construction Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "28",
+        "light": "4821:24666",
+        "dark": "4821:24946"
+      }
+    },
+    {
+      "slug": "home-cleaning-29",
+      "label": "Home Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "29",
+        "light": "4821:24674",
+        "dark": "4821:24954"
+      }
+    },
+    {
+      "slug": "office-cleaning",
+      "label": "Office Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "30",
+        "light": "4821:24683",
+        "dark": "4821:24963"
+      }
+    },
+    {
+      "slug": "deep-cleaning",
+      "label": "Deep Cleaning",
+      "category": "cleaning",
+      "categoryLabel": "Cleaning",
+      "figma": {
+        "number": "31",
+        "light": "4821:24693",
+        "dark": "4821:24973"
+      }
+    },
+    {
+      "slug": "home-repairs-and-installations",
+      "label": "Home Repairs & Installations",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "32",
+        "light": "4821:24703",
+        "dark": "4821:24983"
+      }
+    },
+    {
+      "slug": "cctv-installation",
+      "label": "CCTV Installation",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "33",
+        "light": "4821:24708",
+        "dark": "4821:24988"
+      }
+    },
+    {
+      "slug": "tv-mounting",
+      "label": "TV Mounting",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "34",
+        "light": "4821:24713",
+        "dark": "4821:24993"
+      }
+    },
+    {
+      "slug": "appliance-repair",
+      "label": "Appliance Repair",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "35",
+        "light": "4821:24719",
+        "dark": "4821:24999"
+      }
+    },
+    {
+      "slug": "ac-repair",
+      "label": "AC Repair",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "36",
+        "light": "4821:24725",
+        "dark": "4821:25005"
+      }
+    },
+    {
+      "slug": "generator-repair",
+      "label": "Generator Repair",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "37",
+        "light": "4821:24735",
+        "dark": "4821:25015"
+      }
+    },
+    {
+      "slug": "handyman",
+      "label": "Handyman",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "38",
+        "light": "4821:24740",
+        "dark": "4821:25020"
+      }
+    },
+    {
+      "slug": "carpenter",
+      "label": "Carpenter",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "39",
+        "light": "4821:24744",
+        "dark": "4821:25024"
+      }
+    },
+    {
+      "slug": "electrician",
+      "label": "Electrician",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "40",
+        "light": "4821:24749",
+        "dark": "4821:25029"
+      }
+    },
+    {
+      "slug": "plumber",
+      "label": "Plumber",
+      "category": "home-repairs",
+      "categoryLabel": "Home Repairs",
+      "figma": {
+        "number": "41",
+        "light": "4821:24753",
+        "dark": "4821:25033"
+      }
+    }
+  ]
+}

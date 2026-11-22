@@ -1,0 +1,13 @@
+{
+  "name": "icon-set",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Runbeta hand-drawn icon set — browse, copy, and download light & dark SVG/PNG icons.",
+  "scripts": {
+    "import": "node scripts/import-figma.mjs",
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}
