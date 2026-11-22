@@ -31,20 +31,6 @@ function inst(svg) {
     .replace(/href="#([^"]+)"/g, (_, id) => `href="#${id}-${n}"`);
 }
 
-// ---------- Boot ----------
-const res = await fetch('icons.json');
-state.data = await res.json();
-state.data.icons.forEach((icon, i) => { icon.index = i + 1; state.bySlug.set(icon.slug, icon); });
-$('#search').placeholder = `Search ${state.data.icons.length} icons`;
-
-renderCategories();
-renderGrid();
-syncVariantControls();
-bindUI();
-
-const fromHash = decodeURIComponent(location.hash.slice(1));
-if (state.bySlug.has(fromHash)) { select(fromHash); openPanel(); }
-
 // ---------- Rendering ----------
 function renderCategories() {
   $('#cats').innerHTML = state.data.categories
@@ -406,3 +392,17 @@ function onKey(e) {
 }
 
 function escapeHtml(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]); }
+
+// ---------- Boot (last, so every helper above is initialised) ----------
+const res = await fetch('icons.json');
+state.data = await res.json();
+state.data.icons.forEach((icon, i) => { icon.index = i + 1; state.bySlug.set(icon.slug, icon); });
+$('#search').placeholder = `Search ${state.data.icons.length} icons`;
+
+renderCategories();
+renderGrid();
+syncVariantControls();
+bindUI();
+
+const fromHash = decodeURIComponent(location.hash.slice(1));
+if (state.bySlug.has(fromHash)) { select(fromHash); openPanel(); }
