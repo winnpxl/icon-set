@@ -1,11 +1,22 @@
 /* Runbeta Icons — a single, focused icon browser.
    The Light/Dark switch sets html[data-theme], which flips the whole UI and the icon variant together. */
+/* Britti Sans Trial — read from the fonts installed on this computer (not bundled; it's a trial licence).
+   Visitors without it fall back to Inter. */
+@font-face { font-family: "Britti"; font-weight: 300; font-style: normal; src: local("Britti Sans Trial Light"), local("BrittiSansTrial-Light"); }
+@font-face { font-family: "Britti"; font-weight: 300; font-style: italic; src: local("Britti Sans Trial Light Italic"), local("BrittiSansTrial-LightItalic"); }
+@font-face { font-family: "Britti"; font-weight: 400; font-style: normal; src: local("Britti Sans Trial Regular"), local("BrittiSansTrial-Regular"); }
+@font-face { font-family: "Britti"; font-weight: 400; font-style: italic; src: local("Britti Sans Trial Regular Italic"), local("BrittiSansTrial-RegularItalic"); }
+@font-face { font-family: "Britti"; font-weight: 500 600; font-style: normal; src: local("Britti Sans Trial Semibold"), local("BrittiSansTrial-Semibold"); }
+@font-face { font-family: "Britti"; font-weight: 500 600; font-style: italic; src: local("Britti Sans Trial Semibold Italic"), local("BrittiSansTrial-SemiboldItalic"); }
+@font-face { font-family: "Britti"; font-weight: 700; font-style: normal; src: local("Britti Sans Trial Bold"), local("BrittiSansTrial-Bold"); }
+@font-face { font-family: "Britti"; font-weight: 700; font-style: italic; src: local("Britti Sans Trial Bold Italic"), local("BrittiSansTrial-BoldItalic"); }
+
 :root {
   --violet: #af50ff;
   --blue-edge: #4d5da5;
 
-  --sans: "Inter", Arial, sans-serif;
-  --serif: "Bodoni Moda", Georgia, serif;
+  --sans: "Britti", "Britti Sans Trial", "Inter", Arial, sans-serif;
+  --serif: var(--sans); /* the italic accents now use Britti italic */
   --mono: "Space Mono", ui-monospace, monospace;
 
   --gutter: 32px;
@@ -109,8 +120,8 @@ kbd {
   border-bottom: .5px solid var(--rule);
 }
 .wordmark { display: flex; align-items: baseline; gap: 6px; color: inherit; text-decoration: none; white-space: nowrap; }
-.wm-sans { font: 700 17px/1 var(--sans); letter-spacing: -.03em; }
-.wm-serif { font: italic 400 19px/1 var(--serif); }
+.wm-sans { font: 700 18px/1 var(--sans); letter-spacing: -.03em; }
+.wm-serif { font: italic 300 18px/1 var(--sans); letter-spacing: -.02em; }
 
 .search { position: relative; display: flex; align-items: center; width: 100%; }
 .search svg { position: absolute; left: 14px; width: 17px; height: 17px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
@@ -224,7 +235,7 @@ kbd {
 }
 .t-close svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .t-close:hover { background: var(--glass); }
-.t-name { margin: 8px 0 16px; font: italic 400 30px/1.1 var(--serif); }
+.t-name { margin: 8px 0 16px; font: italic 600 28px/1.1 var(--sans); letter-spacing: -.02em; }
 .t-previews { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .pv { margin: 0; }
 .pv-art { display: grid; place-items: center; aspect-ratio: 1 / .8; border-radius: 12px; }
@@ -301,6 +312,28 @@ dialog::backdrop { background: var(--scrim); }
   opacity: 0; pointer-events: none; transition: opacity .18s, transform .18s;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Theme transition ---------- */
+/* The new theme is clipped into a growing circle by app.js; the old theme stays underneath, untouched. */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { z-index: 2; }
+/* While switching, the circle does the work: freeze the ordinary colour fades so the new theme is crisp inside it. */
+html.theming *, html.theming *::before, html.theming *::after { transition: none !important; }
+
+/* Each icon re-inks as the edge of the light passes over it. */
+.tile .art.ink svg { animation: ink 560ms cubic-bezier(.2, .9, .25, 1.15) both; animation-delay: var(--ink-delay, 0ms); }
+.tile .art.ink { animation: ink-glow 700ms ease-out both; animation-delay: var(--ink-delay, 0ms); }
+@keyframes ink {
+  0%   { opacity: 0; transform: scale(.55) rotate(-12deg); filter: blur(1.5px); }
+  55%  { opacity: 1; transform: scale(1.1) rotate(3deg); filter: blur(0); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes ink-glow {
+  0%   { box-shadow: var(--art-edge), 0 0 0 0 var(--accent-strong); }
+  35%  { box-shadow: var(--art-edge), 0 0 0 6px var(--accent-soft); }
+  100% { box-shadow: var(--art-edge), 0 0 0 10px transparent; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {

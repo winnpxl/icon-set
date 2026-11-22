@@ -280,6 +280,60 @@ function setVariant(v) {
   refreshArt();
   if (state.panelOpen) { state.panelVariant = v; fillPanel(); }
 }
+// ---------- Theme transition ----------
+// The new theme is revealed as a circle of light growing from the switch. As the circle's edge passes
+// each icon, that icon re-inks itself (a small pop and settle), timed to the exact moment the edge reaches it.
+const THEME_MS = 760;
+const THEME_EASE = [0.65, 0, 0.35, 1]; // cubic-bezier for the reveal
+const themeEase = `cubic-bezier(${THEME_EASE.join(',')})`;
+let themeTransition = null;
+
+// Time fraction at which the eased circle reaches a given progress (inverse of the cubic-bezier).
+const easeTable = (() => {
+  const [x1, y1, x2, y2] = THEME_EASE, rows = [];
+  const bez = (a, b, s) => 3 * a * s * (1 - s) ** 2 + 3 * b * s * s * (1 - s) + s ** 3;
+  for (let i = 0; i <= 200; i++) { const s = i / 200; rows.push([bez(x1, x2, s), bez(y1, y2, s)]); }
+  return rows;
+})();
+const timeForProgress = (p) => (easeTable.find(([, y]) => y >= p) || easeTable[easeTable.length - 1])[0];
+
+function switchTheme(v, originEl) {
+  if (v === state.variant) return;
+  const r = (originEl || $(`.bar .selector [data-variant="${v}"]`)).getBoundingClientRect();
+  const x = r.left + r.width / 2, y = r.top + r.height / 2;
+  const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+
+  const update = () => { setVariant(v); if (!reduce) inkIcons(x, y, radius); };
+
+  if (reduce || !document.startViewTransition) return update();
+
+  themeTransition?.skipTransition();
+  root.classList.add('theming');
+  themeTransition = document.startViewTransition(update);
+  themeTransition.ready.then(() => {
+    root.animate(
+      { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+      { duration: THEME_MS, easing: themeEase, pseudoElement: '::view-transition-new(root)' },
+    );
+  }).catch(() => {});
+  themeTransition.finished.finally(() => { root.classList.remove('theming'); themeTransition = null; });
+}
+
+// Stagger each visible icon's re-ink by when the reveal edge reaches it.
+function inkIcons(x, y, radius) {
+  for (const art of $$('.tile:not([hidden]) .art')) {
+    const b = art.getBoundingClientRect();
+    if (b.bottom < 0 || b.top > innerHeight) continue; // offscreen icons just swap
+    const d = Math.hypot(b.left + b.width / 2 - x, b.top + b.height / 2 - y);
+    art.style.setProperty('--ink-delay', `${Math.round(timeForProgress(Math.min(d / radius, 1)) * THEME_MS)}ms`);
+    art.classList.remove('ink'); void art.offsetWidth; art.classList.add('ink');
+  }
+  clearTimeout(inkIcons.t);
+  inkIcons.t = setTimeout(() => { for (const a of $$('.art.ink')) a.classList.remove('ink'); }, THEME_MS + 700);
+}
+
 function syncVariantControls() {
   for (const b of $$('.bar .selector button')) b.setAttribute('aria-checked', String(b.dataset.variant === state.variant));
   // The whole app follows the icon variant: light icons on a light UI, dark icons on a dark UI.
@@ -325,7 +379,7 @@ function bindUI() {
     jumpToCategory(Number(a.dataset.n));
   });
 
-  for (const b of $$('.bar .selector button')) b.addEventListener('click', () => setVariant(b.dataset.variant));
+  for (const b of $$('.bar .selector button')) b.addEventListener('click', () => switchTheme(b.dataset.variant, b));
   $('#help-btn').addEventListener('click', () => $('#help').showModal());
   $('#help [data-close]').addEventListener('click', () => $('#help').close());
   $('#help').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.close(); });
@@ -374,7 +428,7 @@ function onKey(e) {
 
   const key = e.key;
   if (/^[1-9]$/.test(key)) { e.preventDefault(); return jumpToCategory(Number(key)); }
-  const toggle = () => setVariant(other(state.variant));
+  const toggle = () => switchTheme(other(state.variant));
   const map = {
     ArrowLeft: () => move('left'), ArrowRight: () => move('right'),
     ArrowUp: () => move('up'), ArrowDown: () => move('down'),
