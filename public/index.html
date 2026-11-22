@@ -11,6 +11,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Inter:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Apply the saved light/dark choice before first paint so the page never flashes the wrong theme.
+    try {
+      const v = localStorage.getItem('variant');
+      const t = v === 'light' || v === 'dark' ? v : 'dark';
+      document.documentElement.dataset.theme = t;
+      document.querySelector('meta[name="theme-color"]').content = t === 'light' ? '#f4f6f9' : '#090909';
+    } catch {}
+  </script>
 </head>
 <body>
   <a class="skip" href="#grid">Skip to icons</a>

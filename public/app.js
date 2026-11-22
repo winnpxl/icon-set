@@ -282,6 +282,10 @@ function setVariant(v) {
 }
 function syncVariantControls() {
   for (const b of $$('.bar .selector button')) b.setAttribute('aria-checked', String(b.dataset.variant === state.variant));
+  // The whole app follows the icon variant: light icons on a light UI, dark icons on a dark UI.
+  document.documentElement.dataset.theme = state.variant;
+  const meta = $('meta[name="theme-color"]');
+  if (meta) meta.content = state.variant === 'light' ? '#f4f6f9' : '#090909';
 }
 function focusSearch() { const s = $('#search'); s.focus(); s.select(); }
 function clearSearch() { $('#search').value = ''; state.query = ''; applyFilter(); }
