@@ -283,8 +283,8 @@ function setVariant(v) {
 // ---------- Theme transition ----------
 // The new theme is revealed as a circle of light growing from the switch. As the circle's edge passes
 // each icon, that icon re-inks itself (a small pop and settle), timed to the exact moment the edge reaches it.
-const THEME_MS = 760;
-const THEME_EASE = [0.65, 0, 0.35, 1]; // cubic-bezier for the reveal
+const THEME_MS = 460;
+const THEME_EASE = [0.3, 0, 0.15, 1]; // cubic-bezier for the reveal
 const themeEase = `cubic-bezier(${THEME_EASE.join(',')})`;
 let themeTransition = null;
 
@@ -331,7 +331,7 @@ function inkIcons(x, y, radius) {
     art.classList.remove('ink'); void art.offsetWidth; art.classList.add('ink');
   }
   clearTimeout(inkIcons.t);
-  inkIcons.t = setTimeout(() => { for (const a of $$('.art.ink')) a.classList.remove('ink'); }, THEME_MS + 700);
+  inkIcons.t = setTimeout(() => { for (const a of $$('.art.ink')) a.classList.remove('ink'); }, THEME_MS + 500);
 }
 
 function syncVariantControls() {

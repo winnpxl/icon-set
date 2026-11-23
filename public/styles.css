@@ -317,8 +317,8 @@ dialog::backdrop { background: var(--scrim); }
 html.theming *, html.theming *::before, html.theming *::after { transition: none !important; }
 
 /* Each icon re-inks as the edge of the light passes over it. */
-.tile .art.ink svg { animation: ink 560ms cubic-bezier(.2, .9, .25, 1.15) both; animation-delay: var(--ink-delay, 0ms); }
-.tile .art.ink { animation: ink-glow 700ms ease-out both; animation-delay: var(--ink-delay, 0ms); }
+.tile .art.ink svg { animation: ink 380ms cubic-bezier(.2, .9, .25, 1.15) both; animation-delay: var(--ink-delay, 0ms); }
+.tile .art.ink { animation: ink-glow 480ms ease-out both; animation-delay: var(--ink-delay, 0ms); }
 @keyframes ink {
   0%   { opacity: 0; transform: scale(.55) rotate(-12deg); filter: blur(1.5px); }
   55%  { opacity: 1; transform: scale(1.1) rotate(3deg); filter: blur(0); }
