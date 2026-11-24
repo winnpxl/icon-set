@@ -59,7 +59,18 @@
   <nav class="cats" id="cats" aria-label="Categories"></nav>
 
   <main id="grid" class="grid-wrap" tabindex="-1"></main>
-  <p class="empty" id="empty" hidden>No icons match “<span></span>”. <button class="link" id="clear-search">Clear search</button></p>
+  <div class="empty" id="empty" hidden>
+    <svg class="empty-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle class="e-fill" cx="13.5" cy="13.5" r="9"/>
+      <g class="e-line" stroke-width="1.89" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="13.5" cy="13.5" r="9"/>
+        <path d="M20.3 20.3 28 28"/>
+        <path class="e-x" d="M10.8 10.8l5.4 5.4m0-5.4-5.4 5.4"/>
+      </g>
+    </svg>
+    <p class="empty-title">No icons match “<span></span>”</p>
+    <p class="empty-sub">Try another word, or <button class="link" id="clear-search">clear the search</button> <kbd>Esc</kbd></p>
+  </div>
 
   <!-- Detail panel -->
   <aside class="ticket" id="panel" aria-label="Icon details" hidden>
